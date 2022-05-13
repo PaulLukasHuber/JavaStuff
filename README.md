@@ -9,6 +9,6 @@ So that I can find everything again :sweat_smile:
 
 ## CC_Projects
 
-CC_Projects is my folder/module where I will put all the [Codecademy](https://www.codecademy.com) projects I am aiming
-for. Mostly these will be
+CC_Projects is my folder/module where I will put all the [Codecademy](https://www.codecademy.com) projects I want to
+accomplish. Mostly these will be
 projects from the *Portfolio* or from larger *Carrer paths* or *Courses*. 
