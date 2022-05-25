@@ -1,5 +1,5 @@
 /*
-Another CC project, which I rebuilt afterwards to meet a code challenge from "EntwicklerHeld". This small project is the FizzBuzz Challenge, which outputs "Fizz" when a value is divisible by 3 and outputs "Buzz" when a value is divisible by 5. When a value is divisible by 3 and 5, "FizzBuzz "is output.
+Another CC project, which I rebuilt afterwards to meet a code challenge from "EntwicklerHeld". This small project is the FizzBuzz Challenge, which outputs "Fizz" when a value is dividable by 3 and outputs "Buzz" when a value is dividable by 5. When a value is dividable by 3 and 5, "FizzBuzz" is output.
  */
 
 public class FizzBuzz {
