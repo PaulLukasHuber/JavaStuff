@@ -16,8 +16,8 @@ public class StarterAuto {
 
         System.out.println("Anzahl hergestellter Autos: " + Auto.getAnzahlHergestellterAutos());
 
-        Auto golf = new Auto("Volkswagen",2,0,"grau",111);
-        Auto porsche9ff = new Auto("Porsche - 9FF",1,0,"weiß",1400);
+        Auto golf = new Auto("Volkswagen", 2, 0, "grau", 111);
+        Auto porsche9ff = new Auto("Porsche - 9FF", 1, 0, "weiß", 1400);
 
         System.out.println("Anzahl hergestellter Autos: " + Auto.getAnzahlHergestellterAutos());
 

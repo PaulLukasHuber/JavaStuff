@@ -18,5 +18,17 @@ public class Kampfarena {
     public Kampfarena(Superheld held1, Superheld held2) {
         this.held1 = held1;
         this.held2 = held2;
+
+    }
+
+    public void heldenKampfStarten() {
+        while (!held1.istTot() && !held2.istTot()) {
+            held1.schadenNehmen(held2.angreifen());
+            held2.schadenNehmen(held1.angreifen());
+            System.out.println(held1.getName() + " hat noch " + held1.getLebenspunkte() + " Lebenspunkte");
+            System.out.println(held2.getName() + " hat noch " + held2.getLebenspunkte() + " Lebenspunkte");
+        }
+
+
     }
 }

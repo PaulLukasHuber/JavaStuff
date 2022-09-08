@@ -10,44 +10,14 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import java.util.Random;
+public class StarterHelden {
 
-public class Superheld {
+    public static void main(String[] args) {
 
-    private final String name;
-    private int lebenspunkte;
-    private final String faehigkeit;
-    Random random = new Random();
+        Superheld thor = new Superheld("Thor", 40, "Blitze werfen");
+        Superheld loki = new Superheld("Loki", 40, "Verrat");
 
-    public Superheld(String name, int lebenspunkte, String faehigkeit) {
-        this.name = name;
-        this.lebenspunkte = lebenspunkte;
-        this.faehigkeit = faehigkeit;
-    }
-
-    public boolean istTot() {
-        return this.lebenspunkte <= 0;
-
-    }
-
-    public int angreifen() {
-        return random.nextInt(1, 11);
-    }
-
-    public void schadenNehmen(int schaden) {
-        this.lebenspunkte -= schaden;
-    }
-
-    //Getter
-    public int getLebenspunkte() {
-        return lebenspunkte;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getFaehigkeit() {
-        return faehigkeit;
+        Kampfarena kampfarena = new Kampfarena(thor, loki);
+        kampfarena.heldenKampfStarten();
     }
 }

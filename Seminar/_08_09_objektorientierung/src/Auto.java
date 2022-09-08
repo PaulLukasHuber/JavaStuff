@@ -20,15 +20,16 @@ public class Auto {
 
     private static int anzahlHergestellterAutos = 0;
 
-    public Auto(String hersteller, int hoehe, double geschwindigkeit, String farbe, int leistung){
-     this.hersteller = hersteller;
-     this.hoehe = hoehe;
-     this.geschwindigkeit = geschwindigkeit;
-     this.farbe = farbe;
-     this.leistung = leistung;
-     anzahlHergestellterAutos += 1;
+    public Auto(String hersteller, int hoehe, double geschwindigkeit, String farbe, int leistung) {
+        this.hersteller = hersteller;
+        this.hoehe = hoehe;
+        this.geschwindigkeit = geschwindigkeit;
+        this.farbe = farbe;
+        this.leistung = leistung;
+        anzahlHergestellterAutos += 1;
     }
-    public Auto(String farbe, int leistung){
+
+    public Auto(String farbe, int leistung) {
         this.hersteller = "Ferrari - F40";
         this.hoehe = 0;
         this.geschwindigkeit = 0;
@@ -38,13 +39,13 @@ public class Auto {
     }
 
 
-    public void beschleunigen (double beschleunigung){
+    public void beschleunigen(double beschleunigung) {
         geschwindigkeit = geschwindigkeit + beschleunigung;
     }
 
-    public void printFahrzeugbrieg(){
+    public void printFahrzeugbrieg() {
         System.out.println("Hersteller: " + getHersteller());
-        System.out.println("H\u00f6he: " + getHoehe() );
+        System.out.println("H\u00f6he: " + getHoehe());
         System.out.println("Farbe: " + getFarbe());
         System.out.println("Geschwindigkeit: " + getGeschwindigkeit());
         System.out.println("Leistung: " + getLeistung());
