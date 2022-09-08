@@ -1,7 +1,5 @@
 /*
- * MIT License
- *
- * Copyright (c) 2022 REPLACE_WITH_NAME
+ * Copyright 2022 Paul-Lukas Huber
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
  *
@@ -14,13 +12,12 @@ package Automobil;
 
 public class Auto {
 
+    private static int anzahlHergestellterAutos = 0;
     private String hersteller;
     private int hoehe;
     private double geschwindigkeit;
     private String farbe;
     private int leistung;
-
-    private static int anzahlHergestellterAutos = 0;
 
     public Auto(String hersteller, int hoehe, double geschwindigkeit, String farbe, int leistung) {
         this.hersteller = hersteller;
@@ -40,6 +37,10 @@ public class Auto {
         anzahlHergestellterAutos += 1;
     }
 
+    //Getter Setter
+    public static int getAnzahlHergestellterAutos() {
+        return anzahlHergestellterAutos;
+    }
 
     public void beschleunigen(double beschleunigung) {
         geschwindigkeit = geschwindigkeit + beschleunigung;
@@ -51,11 +52,6 @@ public class Auto {
         System.out.println("Farbe: " + getFarbe());
         System.out.println("Geschwindigkeit: " + getGeschwindigkeit());
         System.out.println("Leistung: " + getLeistung());
-    }
-
-    //Getter Setter
-    public static int getAnzahlHergestellterAutos() {
-        return anzahlHergestellterAutos;
     }
 
     public String getHersteller() {

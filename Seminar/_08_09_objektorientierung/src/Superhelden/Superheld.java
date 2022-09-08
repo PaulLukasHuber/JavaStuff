@@ -1,7 +1,5 @@
 /*
- * MIT License
- *
- * Copyright (c) 2022 REPLACE_WITH_NAME
+ * Copyright 2022 Paul-Lukas Huber
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
  *
@@ -17,10 +15,9 @@ import java.util.Random;
 public class Superheld {
 
     private final String name;
-    private int lebenspunkte;
     private final String faehigkeit;
-
     Random random = new Random();
+    private int lebenspunkte;
 
     public Superheld(String name, int lebenspunkte, String faehigkeit) {
         this.name = name;
