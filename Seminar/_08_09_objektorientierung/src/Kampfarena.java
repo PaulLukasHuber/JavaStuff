@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Kampfarena {
 
-    private static int runden = 0;
+    private static int runden = 1;
     Superheld held1;
     Superheld held2;
 
@@ -25,21 +25,33 @@ public class Kampfarena {
     }
 
     public void heldenKampfStarten() {
-        while (!held1.istTot() && !held2.istTot()) {
-            held1.schadenNehmen(held2.angreifen());
-            held2.schadenNehmen(held1.angreifen());
-            System.out.println(held1.getName() + " hat noch " + held1.getLebenspunkte() + " Lebenspunkte");
+        while (held1.istTot() && held2.istTot()) {
+
+            System.out.println("Runde " + runden + ":");
+
+            int schaden1;
+            held1.schadenNehmen(schaden1 = held2.angreifen());
+            int schaden2;
+            held2.schadenNehmen(schaden2 = held1.angreifen());
+
+            System.out.println(held1.getName() + " hat " + schaden1 + " Schaden von " + held2.getName() + " erhalten.");
+            System.out.println(held1.getName() + " hat nun noch " + held1.getLebenspunkte() + " Lebenspunkte!");
+            System.out.println();
             try {
                 TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println(held2.getName() + " hat noch " + held2.getLebenspunkte() + " Lebenspunkte");
+
+            System.out.println(held2.getName() + " hat " + schaden2 + " Schaden von " + held1.getName() + " erhalten.");
+            System.out.println(held2.getName() + " hat nun noch " + held2.getLebenspunkte() + " Lebenspunkte!");
+            System.out.println();
             try {
                 TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+
             runden++;
         }
         if (held1.getLebenspunkte() < held2.getLebenspunkte()) {

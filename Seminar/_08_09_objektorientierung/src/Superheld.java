@@ -27,7 +27,7 @@ public class Superheld {
     }
 
     public boolean istTot() {
-        return this.lebenspunkte <= 0;
+        return this.lebenspunkte > 0;
 
     }
 
@@ -36,7 +36,7 @@ public class Superheld {
             System.out.println("Kritischer Treffer durch " + this.name + "!");
             return 15;
         } else if (random.nextInt(1, 51) == 50) {
-            System.out.println(this.name + " nutzt seine Fähigkeit " + this.faehigkeit + " und verurssacht 30 Schaden!");
+            System.out.println(this.name + " nutzt seine Fähigkeit " + this.faehigkeit + "!");
             return 30;
         }
         return random.nextInt(1, 11);
@@ -55,7 +55,4 @@ public class Superheld {
         return name;
     }
 
-    public String getFaehigkeit() {
-        return faehigkeit;
-    }
 }
