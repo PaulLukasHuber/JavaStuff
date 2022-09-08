@@ -53,6 +53,10 @@ public class Superheld {
         return lebenspunkte;
     }
 
+    public void setLebenspunkte(int lebenspunkte) {
+        this.lebenspunkte = lebenspunkte;
+    }
+
     public String getName() {
         return name;
     }

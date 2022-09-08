@@ -12,30 +12,10 @@
 
 package Superhelden;
 
-import java.util.Random;
+public class Superman extends Superheld {
 
-public class StarterHelden {
-
-    static Random random = new Random();
-
-    public static void main(String[] args) {
-
-        //Superheld thor = new Superheld("Thor", 100, "Blitze werfen");
-        // Superheld loki = new Superheld("Loki", 100, "Verrat");
-
-        Batman batman = new Batman(5);
-        System.out.println(batman.getLebenspunkte());
-        Spiderman spiderman = new Spiderman(2);
-        System.out.println(spiderman.getLebenspunkte());
-        Superman superman = new Superman(8);
-        System.out.println(superman.getLebenspunkte());
-
-        spiderman.faedenVerschiessen(random.nextInt(1, 4));
-        System.out.println(batman.getLebenspunkte());
-        batman.lebenspunkteAuffuellen();
-        System.out.println(batman.getLebenspunkte());
-
-        // Kampfarena kampfarena = new Kampfarena(thor, loki);
-        // kampfarena.heldenKampfStarten();
+    public Superman(int anzahlKaempfe) {
+        super("Superman", 40 + (anzahlKaempfe), "Laseraugen");
     }
+
 }
