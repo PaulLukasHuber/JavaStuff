@@ -28,4 +28,5 @@ replay_pid*
 *.iml
 out
 gen
-/Seminar/
+/Seminar/_04_arrays/src/Utils.java
+/Seminar/_05_scanner/src/Utils.java
