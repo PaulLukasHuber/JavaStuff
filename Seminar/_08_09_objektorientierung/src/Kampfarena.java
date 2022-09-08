@@ -10,6 +10,8 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import java.util.concurrent.TimeUnit;
+
 public class Kampfarena {
 
     private static int runden = 0;
@@ -27,7 +29,17 @@ public class Kampfarena {
             held1.schadenNehmen(held2.angreifen());
             held2.schadenNehmen(held1.angreifen());
             System.out.println(held1.getName() + " hat noch " + held1.getLebenspunkte() + " Lebenspunkte");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             System.out.println(held2.getName() + " hat noch " + held2.getLebenspunkte() + " Lebenspunkte");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             runden++;
         }
         if (held1.getLebenspunkte() < held2.getLebenspunkte()) {
