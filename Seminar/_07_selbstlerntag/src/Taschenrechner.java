@@ -1,5 +1,18 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022 REPLACE_WITH_NAME
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Taschenrechner {
@@ -44,47 +57,47 @@ public class Taschenrechner {
                     z1 = input.nextDouble();
                     System.out.println("Gebe die zweite Zahl ein: ");
                     z2 = input.nextDouble();
-                    myTaschenrechner.ergebnisVerarbeiten(myTaschenrechner.add(z1, z2), ergebnisse);
+                    ergebnisVerarbeiten(myTaschenrechner.add(z1, z2), ergebnisse);
                     break;
                 case "-":
                     System.out.println("Gebe die erste Zahl ein: ");
                     z1 = input.nextDouble();
                     System.out.println("Gebe die zweite Zahl ein: ");
                     z2 = input.nextDouble();
-                    myTaschenrechner.ergebnisVerarbeiten(myTaschenrechner.subtract(z1, z2), ergebnisse);
+                    ergebnisVerarbeiten(myTaschenrechner.subtract(z1, z2), ergebnisse);
                     break;
                 case "*":
                     System.out.println("Gebe die erste Zahl ein: ");
                     z1 = input.nextDouble();
                     System.out.println("Gebe die zweite Zahl ein: ");
                     z2 = input.nextDouble();
-                    myTaschenrechner.ergebnisVerarbeiten(myTaschenrechner.multiply(z1, z2), ergebnisse);
+                    ergebnisVerarbeiten(myTaschenrechner.multiply(z1, z2), ergebnisse);
                     break;
                 case "/":
                     System.out.println("Gebe die erste Zahl ein: ");
                     z1 = input.nextDouble();
                     System.out.println("Gebe die zweite Zahl ein: ");
                     z2 = input.nextDouble();
-                    myTaschenrechner.ergebnisVerarbeiten(myTaschenrechner.divide(z1, z2), ergebnisse);
+                    ergebnisVerarbeiten(myTaschenrechner.divide(z1, z2), ergebnisse);
                     break;
                 case "%":
                     System.out.println("Gebe die erste Zahl ein: ");
                     z1 = input.nextDouble();
                     System.out.println("Gebe die zweite Zahl ein: ");
                     z2 = input.nextDouble();
-                    myTaschenrechner.ergebnisVerarbeiten(myTaschenrechner.modulo(z1, z2), ergebnisse);
+                    ergebnisVerarbeiten(myTaschenrechner.modulo(z1, z2), ergebnisse);
                     break;
                 case "^":
                     System.out.println("Gebe die erste Zahl ein: ");
                     z1 = input.nextDouble();
                     System.out.println("Gebe die zweite Zahl ein: ");
                     z2 = input.nextDouble();
-                    myTaschenrechner.ergebnisVerarbeiten(myTaschenrechner.xHochY((int) z1, (int) z2), ergebnisse);
+                    ergebnisVerarbeiten(xHochY((int) z1, (int) z2), ergebnisse);
                     break;
                 case "Sqrt":
                     System.out.println("Gebe die Zahl ein, bei welcher die Wurzel gezogen werden soll: ");
                     z1 = input.nextDouble();
-                    myTaschenrechner.ergebnisVerarbeiten(myTaschenrechner.square(z1), ergebnisse);
+                    ergebnisVerarbeiten(myTaschenrechner.square(z1), ergebnisse);
                     break;
                 case "Ausgabe":
                     System.out.println(ergebnisse);
@@ -105,10 +118,9 @@ public class Taschenrechner {
             }
 
             System.out.println("Soll eine weitere Berechnung ausgeführt werden? J/N");
-            if (input.nextLine() == "J") {
-                fortsetzen = true;
+            if (Objects.equals(input.nextLine(), "J")) {
                 System.out.println("Gebe die Operation an: ");
-            } else if (input.nextLine() == "N") {
+            } else if (Objects.equals(input.nextLine(), "N")) {
                 fortsetzen = false;
             }
         }

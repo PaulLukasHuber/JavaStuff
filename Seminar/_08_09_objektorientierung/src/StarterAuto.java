@@ -10,44 +10,25 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import java.util.Locale;
-import java.util.Scanner;
-
-public class Aufgabe5 {
+public class StarterAuto {
 
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in).useLocale(Locale.GERMAN);
+        System.out.println("Anzahl hergestellter Autos: " + Auto.getAnzahlHergestellterAutos());
 
-        double zahl1, zahl2, ergebnis;
-        String operator;
+        Auto golf = new Auto("Volkswagen",2,0,"grau",111);
+        Auto porsche9ff = new Auto("Porsche - 9FF",1,0,"weiß",1400);
 
-        System.out.println("Gebe die erste Zahl ein: ");
-        zahl1 = input.nextDouble();
-        System.out.println("Gebe nun den Operator ein: ");
-        operator = input.next();
-        System.out.println("Gebe nun die zweite Zahl ein: ");
-        zahl2 = input.nextDouble();
+        System.out.println("Anzahl hergestellter Autos: " + Auto.getAnzahlHergestellterAutos());
+
+        System.out.println("Die Farbe vom " + porsche9ff.getHersteller() + " ist " + porsche9ff.getFarbe());
+        System.out.println("Die Leistung vom " + golf.getHersteller() + " ist " + golf.getLeistung());
+
+        porsche9ff.setFarbe("Anthrazit");
+        System.out.println("Die Farbe vom " + porsche9ff.getHersteller() + " ist " + porsche9ff.getFarbe());
+
+        Auto f40 = new Auto("Rot", 700);
 
 
-        ergebnis = berechneErgebnis(zahl1, zahl2, operator);
-        System.out.print(ergebnis);
-    }
-
-    public static double berechneErgebnis(double zahl1, double zahl2, String operator) {
-        switch (operator) {
-            case "+":
-                return zahl1 + zahl2;
-            case "-":
-                return zahl1 - zahl2;
-            case "*":
-                return zahl1 * zahl2;
-            case "/":
-                return zahl1 / zahl2;
-            default:
-                System.out.println("Eingabe ungültig!");
-                System.out.println("Gebe 0.0 aus: ");
-                return 000;
-        }
     }
 }

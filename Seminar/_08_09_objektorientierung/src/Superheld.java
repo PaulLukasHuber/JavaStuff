@@ -10,8 +10,44 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.print("Hello world");
+import java.util.Random;
+
+public class Superheld {
+
+    private final String name;
+    private int lebenspunkte;
+    private final String faehigkeit;
+    Random random = new Random();
+
+    public Superheld(String name, int lebenspunkte, String faehigkeit) {
+        this.name = name;
+        this.lebenspunkte = lebenspunkte;
+        this.faehigkeit = faehigkeit;
+    }
+
+    public boolean istTot() {
+        return this.lebenspunkte <= 0;
+
+    }
+
+    public int angreifen() {
+        return random.nextInt(1, 11);
+    }
+
+    public void schadenNehmen(int schaden) {
+        lebenspunkte = -schaden;
+    }
+
+    //Getter
+    public int getLebenspunkte() {
+        return lebenspunkte;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getFaehigkeit() {
+        return faehigkeit;
     }
 }
