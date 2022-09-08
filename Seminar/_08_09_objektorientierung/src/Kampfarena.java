@@ -12,6 +12,7 @@
 
 public class Kampfarena {
 
+    private static int runden = 0;
     Superheld held1;
     Superheld held2;
 
@@ -27,7 +28,11 @@ public class Kampfarena {
             held2.schadenNehmen(held1.angreifen());
             System.out.println(held1.getName() + " hat noch " + held1.getLebenspunkte() + " Lebenspunkte");
             System.out.println(held2.getName() + " hat noch " + held2.getLebenspunkte() + " Lebenspunkte");
+            runden++;
         }
+        if (held1.getLebenspunkte() < held2.getLebenspunkte()) {
+            System.out.println("Gewonnen hat " + held2.getName() + " nach " + runden + " Runden.");
+        } else System.out.println("Gewonnen hat " + held1.getName() + " nach " + runden + " Runden.");
 
 
     }

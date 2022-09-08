@@ -14,8 +14,8 @@ public class StarterHelden {
 
     public static void main(String[] args) {
 
-        Superheld thor = new Superheld("Thor", 40, "Blitze werfen");
-        Superheld loki = new Superheld("Loki", 40, "Verrat");
+        Superheld thor = new Superheld("Thor", 100, "Blitze werfen");
+        Superheld loki = new Superheld("Loki", 100, "Verrat");
 
         Kampfarena kampfarena = new Kampfarena(thor, loki);
         kampfarena.heldenKampfStarten();

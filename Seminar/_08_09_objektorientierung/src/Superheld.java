@@ -17,6 +17,7 @@ public class Superheld {
     private final String name;
     private int lebenspunkte;
     private final String faehigkeit;
+
     Random random = new Random();
 
     public Superheld(String name, int lebenspunkte, String faehigkeit) {
@@ -31,6 +32,13 @@ public class Superheld {
     }
 
     public int angreifen() {
+        if (random.nextInt(1, 16) == 15) {
+            System.out.println("Kritischer Treffer durch " + this.name + "!");
+            return 15;
+        } else if (random.nextInt(1, 51) == 50) {
+            System.out.println(this.name + " nutzt seine Fähigkeit " + this.faehigkeit + " und verurssacht 30 Schaden!");
+            return 30;
+        }
         return random.nextInt(1, 11);
     }
 
