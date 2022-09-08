@@ -10,14 +10,51 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-public class StarterHelden {
+package Superhelden;
 
-    public static void main(String[] args) {
+import java.util.Random;
 
-        Superheld thor = new Superheld("Thor", 100, "Blitze werfen");
-        Superheld loki = new Superheld("Loki", 100, "Verrat");
+public class Superheld {
 
-        Kampfarena kampfarena = new Kampfarena(thor, loki);
-        kampfarena.heldenKampfStarten();
+    private final String name;
+    private int lebenspunkte;
+    private final String faehigkeit;
+
+    Random random = new Random();
+
+    public Superheld(String name, int lebenspunkte, String faehigkeit) {
+        this.name = name;
+        this.lebenspunkte = lebenspunkte;
+        this.faehigkeit = faehigkeit;
     }
+
+    public boolean istTot() {
+        return this.lebenspunkte > 0;
+
+    }
+
+    public int angreifen() {
+        if (random.nextInt(1, 16) == 15) {
+            System.out.println("Kritischer Treffer durch " + this.name + "!");
+            return 15;
+        } else if (random.nextInt(1, 51) == 50) {
+            System.out.println(this.name + " nutzt seine Fähigkeit " + this.faehigkeit + "!");
+            return 30;
+        }
+        return random.nextInt(1, 11);
+    }
+
+    public void schadenNehmen(int schaden) {
+        this.lebenspunkte -= schaden;
+    }
+
+    //Getter
+    public int getLebenspunkte() {
+        return lebenspunkte;
+    }
+
+    public String getName() {
+        return name;
+    }
+
 }

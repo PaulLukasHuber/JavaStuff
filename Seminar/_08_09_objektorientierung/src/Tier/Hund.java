@@ -10,25 +10,17 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-public class StarterAuto {
+package Tier;
 
-    public static void main(String[] args) {
+public class Hund extends Tier {
 
-        System.out.println("Anzahl hergestellter Autos: " + Auto.getAnzahlHergestellterAutos());
+    public Hund(int alter, String fellfarbe) {
+        super(alter, fellfarbe);
+    }
 
-        Auto golf = new Auto("Volkswagen", 2, 0, "grau", 111);
-        Auto porsche9ff = new Auto("Porsche - 9FF", 1, 0, "weiß", 1400);
-
-        System.out.println("Anzahl hergestellter Autos: " + Auto.getAnzahlHergestellterAutos());
-
-        System.out.println("Die Farbe vom " + porsche9ff.getHersteller() + " ist " + porsche9ff.getFarbe());
-        System.out.println("Die Leistung vom " + golf.getHersteller() + " ist " + golf.getLeistung());
-
-        porsche9ff.setFarbe("Anthrazit");
-        System.out.println("Die Farbe vom " + porsche9ff.getHersteller() + " ist " + porsche9ff.getFarbe());
-
-        Auto f40 = new Auto("Rot", 700);
-
-
+    public int gibtAlterInHundejahre() {
+        return getAlter() * 7;
     }
 }
+
+

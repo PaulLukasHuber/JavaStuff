@@ -10,6 +10,8 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+package Superhelden;
+
 import java.util.concurrent.TimeUnit;
 
 public class Kampfarena {
@@ -27,12 +29,12 @@ public class Kampfarena {
     public void heldenKampfStarten() {
         while (held1.istTot() && held2.istTot()) {
 
-            System.out.println("Runde " + runden + ":");
+            System.out.println("Runde " + runden + ": ");
 
-            int schaden1;
-            held1.schadenNehmen(schaden1 = held2.angreifen());
-            int schaden2;
-            held2.schadenNehmen(schaden2 = held1.angreifen());
+            int schaden1 = held2.angreifen();
+            held1.schadenNehmen(schaden1);
+            int schaden2 = held1.angreifen();
+            held2.schadenNehmen(schaden2);
 
             System.out.println(held1.getName() + " hat " + schaden1 + " Schaden von " + held2.getName() + " erhalten.");
             System.out.println(held1.getName() + " hat nun noch " + held1.getLebenspunkte() + " Lebenspunkte!");
