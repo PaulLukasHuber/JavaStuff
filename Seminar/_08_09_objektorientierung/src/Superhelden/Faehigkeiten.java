@@ -12,43 +12,21 @@
 
 package Superhelden;
 
-public class Heldenteam {
+public class Faehigkeiten {
 
-    private final String teamname;
-    private final Superheld held1;
-    private final Superheld held2;
-    private final Superheld held3;
+    private final String name;
+    private final int mana;
 
-
-    public Heldenteam(String teamname, Superheld held1, Superheld held2, Superheld held3) {
-
-        this.teamname = teamname;
-        this.held1 = held1;
-        this.held2 = held2;
-        this.held3 = held3;
+    public Faehigkeiten(String name, int mana) {
+        this.name = name;
+        this.mana = mana;
     }
 
-    public boolean teamTod() {
-        return getGesamtLeben() >= 0;
+    public int getMana() {
+        return mana;
     }
 
-    public void nenneTeammitglieder() {
-        System.out.println("Das Team " + teamname + " besteht aus " + getErstenHeld().getName() + " und " + getZweitenHeld().getName() + " sowie " + getDrittenHeld().getName() + "!");
-    }
-
-    public int getGesamtLeben() {
-        return held1.getLebenspunkte() + held2.getLebenspunkte() + held3.getLebenspunkte();
-    }
-
-    public Superheld getErstenHeld() {
-        return held1;
-    }
-
-    public Superheld getZweitenHeld() {
-        return held2;
-    }
-
-    public Superheld getDrittenHeld() {
-        return held3;
+    public String getName() {
+        return name;
     }
 }

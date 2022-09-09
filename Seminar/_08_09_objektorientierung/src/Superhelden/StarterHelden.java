@@ -1,5 +1,7 @@
 /*
- * Copyright 2022 Paul-Lukas Huber
+ * MIT License
+ *
+ * Copyright (c) 2022 REPLACE_WITH_NAME
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
  *
@@ -18,8 +20,8 @@ public class StarterHelden {
 
     public static void main(String[] args) {
 
-        //Superheld thor = new Superheld("Thor", 100, "Blitze werfen");
-        // Superheld loki = new Superheld("Loki", 100, "Verrat");
+        Superheld thor = new Superheld("Thor", 100, "Blitze werfen");
+        Superheld loki = new Superheld("Loki", 100, "Verrat");
 
         Batman batman = new Batman(5);
         System.out.println(batman.getLebenspunkte());
@@ -38,9 +40,15 @@ public class StarterHelden {
         System.out.println(team1.getZweitenHeld());
         System.out.println(team1.getDrittenHeld());
 
+        Heldenteam team2 = new Heldenteam(null, null, null, null);
+
         team1.nenneTeammitglieder();
         System.out.println(team1.getGesamtLeben());
-        // Kampfarena kampfarena = new Kampfarena(thor, loki);
-        // kampfarena.heldenKampfStarten();
+
+        Kampfarena teamkampf = new Kampfarena(team1, team2);
+
+
+        Kampfarena kampfarena = new Kampfarena(thor, loki);
+        kampfarena.heldenKampfStarten();
     }
 }
