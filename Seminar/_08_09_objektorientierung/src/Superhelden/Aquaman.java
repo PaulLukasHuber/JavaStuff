@@ -12,21 +12,8 @@
 
 package Superhelden;
 
-public class Faehigkeiten {
-
-    private final String name;
-    private final int mana;
-
-    public Faehigkeiten(String name, int mana) {
-        this.name = name;
-        this.mana = mana;
-    }
-
-    public int getMana() {
-        return mana;
-    }
-
-    public String getName() {
-        return name;
+public class Aquaman extends Superheld {
+    public Aquaman(int anzahlKaempfe) {
+        super("Aquaman", 25 + (3 * anzahlKaempfe), "Nass machen");
     }
 }

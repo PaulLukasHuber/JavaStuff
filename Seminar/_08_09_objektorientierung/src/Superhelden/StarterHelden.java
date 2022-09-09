@@ -25,30 +25,33 @@ public class StarterHelden {
 
         Batman batman = new Batman(5);
         System.out.println(batman.getLebenspunkte());
-        Spiderman spiderman = new Spiderman(2);
-        System.out.println(spiderman.getLebenspunkte());
+        Aquaman aquaman = new Aquaman(6);
+        System.out.println(aquaman.getLebenspunkte());
         Superman superman = new Superman(8);
         System.out.println(superman.getLebenspunkte());
+
+        Ironman ironman = new Ironman(2);
+        System.out.println(ironman.getLebenspunkte());
+        Spiderman spiderman = new Spiderman(2);
+        System.out.println(spiderman.getLebenspunkte());
 
         spiderman.faedenVerschiessen(random.nextInt(1, 4));
         System.out.println(batman.getLebenspunkte());
         batman.lebenspunkteAuffuellen();
         System.out.println(batman.getLebenspunkte());
 
-        Heldenteam team1 = new Heldenteam("Superteam", spiderman, batman, superman);
-        System.out.println(team1.getErstenHeld());
-        System.out.println(team1.getZweitenHeld());
-        System.out.println(team1.getDrittenHeld());
+        Heldenteam team1 = new Heldenteam("DC", aquaman, batman, superman);
 
-        Heldenteam team2 = new Heldenteam(null, null, null, null);
+        Heldenteam team2 = new Heldenteam("Marvel", ironman, spiderman, thor);
 
         team1.nenneTeammitglieder();
         System.out.println(team1.getGesamtLeben());
 
         Kampfarena teamkampf = new Kampfarena(team1, team2);
+        teamkampf.teamKampfStarten();
 
 
         Kampfarena kampfarena = new Kampfarena(thor, loki);
-        kampfarena.heldenKampfStarten();
+        System.out.println("Gewonnen hat " + kampfarena.heldenKampfStarten(thor, loki).getName() + " nach " + " Runden.");
     }
 }

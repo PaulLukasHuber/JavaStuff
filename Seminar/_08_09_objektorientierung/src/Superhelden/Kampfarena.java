@@ -16,7 +16,9 @@ import java.util.concurrent.TimeUnit;
 
 public class Kampfarena {
 
-    private static int runden = 1;
+    private static int teamRunden = 1;
+    private Heldenteam team1;
+    private Heldenteam team2;
     Superheld held1;
     Superheld held2;
 
@@ -26,15 +28,75 @@ public class Kampfarena {
     }
 
     public Kampfarena(Heldenteam team1, Heldenteam team2) {
+        this.team1 = team1;
+        this.team2 = team2;
+    }
+
+    public void teamKampfStarten() {
+
+        System.out.println("---***---***---***---***---***---");
+        System.out.println("     " + team1.getTeamname() + " vs. " + team2.getTeamname());
+        System.out.println("---***---***---***---***---***---");
+        System.out.println();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         while (team1.teamTod() && team2.teamTod()) {
 
-            System.out.println("Runde " + runden + ":");
 
+            System.out.println("Teamrunde " + teamRunden + ":");
+
+
+            Superheld kaempferA = null;
+            if (team1.getErstenHeld().getLebenspunkte() > 0) {
+                kaempferA = team1.getErstenHeld();
+            } else if (team1.getZweitenHeld().getLebenspunkte() > 0) {
+                kaempferA = team1.getZweitenHeld();
+            } else if (team1.getDrittenHeld().getLebenspunkte() > 0) {
+                kaempferA = team1.getDrittenHeld();
+            }
+
+            Superheld kaempferB = null;
+            if (team2.getErstenHeld().getLebenspunkte() > 0) {
+                kaempferB = team2.getErstenHeld();
+            } else if (team2.getZweitenHeld().getLebenspunkte() > 0) {
+                kaempferB = team2.getZweitenHeld();
+            } else if (team2.getDrittenHeld().getLebenspunkte() > 0) {
+                kaempferB = team2.getDrittenHeld();
+            }
+
+            System.out.println("Kampf zwischen: ");
+            assert kaempferA != null;
+            assert kaempferB != null;
+            System.out.println(kaempferA.getName() + " vs. " + kaempferB.getName());
+            System.out.println();
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+            Superheld gewinner = heldenKampfStarten(kaempferA, kaempferB);
+            if (gewinner != null) {
+                System.out.println(gewinner.getName() + " hat das Duell gewonnen");
+            }
+            teamRunden++;
+
+            if (team1.getGesamtLeben() > 0) {
+                System.out.println(team1.getTeamname() + " hat als Team gewonnen!");
+            } else if (team2.getGesamtLeben() > 0) {
+                System.out.println(team2.getTeamname() + " hat als Team gewonnen!");
+            }
 
         }
     }
 
-    public void heldenKampfStarten() {
+
+    public Superheld heldenKampfStarten(Superheld held1, Superheld held2) {
+        int runden = 1;
         while (held1.istTot() && held2.istTot()) {
 
             System.out.println("Runde " + runden + ": ");
@@ -65,9 +127,7 @@ public class Kampfarena {
             runden++;
         }
         if (held1.getLebenspunkte() < held2.getLebenspunkte()) {
-            System.out.println("Gewonnen hat " + held2.getName() + " nach " + runden + " Runden.");
-        } else System.out.println("Gewonnen hat " + held1.getName() + " nach " + runden + " Runden.");
-
-
+            return held2;
+        } else return held1;
     }
 }
