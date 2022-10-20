@@ -10,38 +10,32 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-public class AufgabenSchleifen {
+package Superhelden;
 
-    public static void main(String[] args) {
+import java.util.HashSet;
+import java.util.Set;
 
-        System.out.println("Aufgabe 1:");
-        System.out.println(addierenFor(9));
+public class Heldenliste {
+    Set<Superheld> heldenliste;
 
-        System.out.println();
-        System.out.println("Aufgabe 2:");
-        geteilt1024();
-
+    public Heldenliste() {
+        this.heldenliste = new HashSet<Superheld>();
     }
 
-    public static int addierenFor(int n) {
-
-        int i, l = 0;
-        for (i = 0; i <= n; i++) {
-            l = l + i;
-        }
-        return l;
+    public void eintragen(Superheld held) {
+        heldenliste.add(held);
     }
 
+    public void entfernen(Superheld held) {
+        heldenliste.remove(held);
+    }
 
-    public static void geteilt1024() {
-        int n = 1024;
-        int i = 1;
-        while (n != 1) {
-            n = n / 2;
-            System.out.println(i);
-            i++;
-            System.out.println(n);
-        }
+    public boolean istVorhanden(Superheld held) {
+        return this.heldenliste.contains(held);
+    }
+
+    public int getAnzahlHelden() {
+        return this.heldenliste.size();
     }
 }
 

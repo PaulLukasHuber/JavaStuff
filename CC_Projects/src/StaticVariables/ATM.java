@@ -10,38 +10,36 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-public class AufgabenSchleifen {
+package StaticVariables;
+
+public class ATM {
+
+
+    // Step 2: Create your static variables here
+
+    public static int totalMoney = 0;
+    public static int numATMs = 0;
+
+    // Instance variables
+    public int money;
+
+    public ATM(int inputMoney) {
+        this.money = inputMoney;
+    }
+
+    public void withdrawMoney(int amountToWithdraw) {
+        if (amountToWithdraw <= this.money) {
+            this.money -= amountToWithdraw;
+        }
+    }
 
     public static void main(String[] args) {
+        // Step 1: Create your two ATMs here
 
-        System.out.println("Aufgabe 1:");
-        System.out.println(addierenFor(9));
+        ATM firstATM = new ATM(1000);
+        ATM secondATM = new ATM(500);
 
-        System.out.println();
-        System.out.println("Aufgabe 2:");
-        geteilt1024();
-
+        // Step 3: Print your static variable in three different ways here
     }
 
-    public static int addierenFor(int n) {
-
-        int i, l = 0;
-        for (i = 0; i <= n; i++) {
-            l = l + i;
-        }
-        return l;
-    }
-
-
-    public static void geteilt1024() {
-        int n = 1024;
-        int i = 1;
-        while (n != 1) {
-            n = n / 2;
-            System.out.println(i);
-            i++;
-            System.out.println(n);
-        }
-    }
 }
-

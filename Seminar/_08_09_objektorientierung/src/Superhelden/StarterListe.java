@@ -10,38 +10,32 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-public class AufgabenSchleifen {
+package Superhelden;
+
+public class StarterListe {
 
     public static void main(String[] args) {
 
-        System.out.println("Aufgabe 1:");
-        System.out.println(addierenFor(9));
+        Superheld ironman = new Ironman(2);
+        Superheld batman = new Batman(8);
+        Superheld spiderman = new Spiderman(4);
+        Superheld aquaman = new Aquaman(1);
+        Superheld loki = new Superheld("Loki", 40, "Verrat");
 
-        System.out.println();
-        System.out.println("Aufgabe 2:");
-        geteilt1024();
+        Heldenliste heldenliste = new Heldenliste();
 
-    }
+        heldenliste.eintragen(ironman);
+        heldenliste.eintragen(batman);
+        heldenliste.eintragen(spiderman);
+        heldenliste.eintragen(aquaman);
+        heldenliste.eintragen(loki);
 
-    public static int addierenFor(int n) {
+        System.out.println(heldenliste.getAnzahlHelden());
 
-        int i, l = 0;
-        for (i = 0; i <= n; i++) {
-            l = l + i;
-        }
-        return l;
-    }
+        heldenliste.entfernen(batman);
+        System.out.println(heldenliste.getAnzahlHelden());
 
+        System.out.println(heldenliste.istVorhanden(loki));
 
-    public static void geteilt1024() {
-        int n = 1024;
-        int i = 1;
-        while (n != 1) {
-            n = n / 2;
-            System.out.println(i);
-            i++;
-            System.out.println(n);
-        }
     }
 }
-

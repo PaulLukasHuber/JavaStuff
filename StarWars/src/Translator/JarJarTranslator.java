@@ -10,38 +10,22 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-public class AufgabenSchleifen {
+package Translator;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+public class JarJarTranslator {
 
     public static void main(String[] args) {
 
-        System.out.println("Aufgabe 1:");
-        System.out.println(addierenFor(9));
-
-        System.out.println();
-        System.out.println("Aufgabe 2:");
-        geteilt1024();
-
+        HttpResponse<String> response = Unirest.get("https://gungan.p.rapidapi.com/gungan.json?text=You%20came%20to%20my%20home%20and%20I%20said%20okay!")
+                .header("X-RapidAPI-Key", "79efbbee92msh074de167b4f38fep135730jsn91ce8b08b4e0")
+                .header("X-RapidAPI-Host", "gungan.p.rapidapi.com")
+                .asString();
     }
 
-    public static int addierenFor(int n) {
-
-        int i, l = 0;
-        for (i = 0; i <= n; i++) {
-            l = l + i;
-        }
-        return l;
-    }
-
-
-    public static void geteilt1024() {
-        int n = 1024;
-        int i = 1;
-        while (n != 1) {
-            n = n / 2;
-            System.out.println(i);
-            i++;
-            System.out.println(n);
-        }
-    }
 }
-
